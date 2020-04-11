@@ -1,4 +1,4 @@
-import { canMultiply } from "./matrix";
+import { canMultiply, isMatrix } from ".";
 
 test("allows multiplication of 1x3 by 3x3", () => {
   const matrix1 = [[4, -4, 6]];
@@ -37,18 +37,7 @@ test("allows multiplication of 3x3 by 3x3", () => {
   expect(canMultiply(matrix1, matrix2)).toBe(true);
 });
 
-// test("allows multiplication of 3x3 by 3x3", () => {
-//   expect(canMultiply(matrix1, matrix2)).toBe(true);
-// });
-
-// test("does not allow multiplication when matrices are wrong size", () => {
-//   expect(canMultiply(matrix1, matrix2)).toBe(true);
-// });
-
-// test("allows multiplication when matrices are right size", () => {
-//   expect(canMultiply(matrix1, matrix2)).toBe(true);
-// });
-
-// test("allows multiplication when matrices are right size", () => {
-//   expect(canMultiply(matrix1, matrix2)).toBe(true);
-// });
+test("finds faulty matrices", () => {
+  const matrix = [[4, -4, 6], [5, 0, 7], [-3]];
+  expect(isMatrix(matrix)).toBe(false);
+});
